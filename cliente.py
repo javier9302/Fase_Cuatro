@@ -2,29 +2,36 @@
 class Cliente:
     def __init__(self, nombre, id, email):
         #Todos los atributos son privados
-        self._nombre=nombre
-        self._id=id
-        self._email=email
+        self.__nombre=nombre
+        self.__id=id
+        self.__email=email
 
-    #Creación de setters para los principales atributos 
-    def set_nombre(self,nombre):
-        self._nombre=nombre
 
-    def set_id(self,id):
-        self._id=id
+    #Creacion de getters usando @property
 
-    def set_email(self,email):
-        self._email=email
-
+    @property
+    def nombre(self):
+        return self.__nombre
     
-    #Creacion de getters
+    @property    
+    def id(self):
+        return self.__id
+    
+    @property
+    def email(self):
+        return self.__email
+    
+    #Creación de setters usando @property
+    @nombre.setter
+    def nombre(self,nombre):
+        self.__nombre=nombre
+    
+    @id.setter
+    def id(self,valor):
+        self.__id=valor
+    
+    @email.setter
+    def email(self,email):
+        self.__email=email
 
-    def get_nombre(self):
-        return self._nombre
-    
-    def get_id(self):
-        return self._id
-    
-    def get_email(self):
-        return self._email
     
