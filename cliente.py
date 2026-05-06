@@ -1,6 +1,6 @@
 #Importar librería para validar patrones. Usada en el email
 import re
-#Importar errores desde
+#Importar errores desde excepciones.py
 from excepciones import ErrorEmailInvalido, ErrorNombreInvalido, ErrorIdInvalido
 
 #Creación de la clase cliente
