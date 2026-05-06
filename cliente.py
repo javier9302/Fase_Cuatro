@@ -7,9 +7,9 @@ from excepciones import ErrorEmailInvalido, ErrorNombreInvalido, ErrorIdInvalido
 class Cliente:
     def __init__(self, nombre, id, email):
         #Todos los atributos son privados
-        self.__nombre=nombre
-        self.__id=id
-        self.__email=email
+        self.nombre=nombre
+        self.id=id
+        self.email=email
 
 
     #Creacion de getters y setters usando @property
@@ -45,7 +45,7 @@ class Cliente:
         if not isinstance(valor, int):
             #Validar que sea un entero
             raise ErrorIdInvalido("El ID debe ser un número sin puntos ni comas ni letras")
-        if len(valor) <=5 or len(valor)>10:
+        if len(str(valor)) <=5 or len(str(valor))>10:
             #Validar que tenga el campo no sea vacío y tenga la cantidad de dígitos correcta
             raise ErrorIdInvalido("El ID debe tener entre 5 y 10 dígitos")
         
@@ -72,6 +72,10 @@ class Cliente:
             raise ErrorEmailInvalido("Formato de email inválido")
         
         self.__email=valor
+    
+    #Método especial para representación en texto del objeto (print)
+    def __str__(self):
+        return f"{self.nombre} ({self.id}) - {self.email}"
 
        
         
