@@ -73,12 +73,16 @@ class Cliente:
         
         self.__email=valor
     
-    #Método especial para representación en texto del objeto (print)
+    #Método especial para representación en texto del objeto (print). De lo contrario muestra un código.
     def __str__(self):
         return f"{self.nombre} ({self.id}) - {self.email}"
-
-       
-        
+ 
+    #Método para mostrar la información del cliente según el ID
+    def mostrar_info(self):
+        return f"Cliente: {self.nombre}-{self.email}"
+    
+            
+    
     
     
  
