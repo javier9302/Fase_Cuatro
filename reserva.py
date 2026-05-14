@@ -16,7 +16,7 @@ from excepciones import (
 class Reserva:
 
     def __init__(self, id_reserva, cliente,
-                 servicio, fecha, duracion, estado):
+                 servicio, fecha, duracion, estado, cantidad):
 
         #Todos los atributos son privados
         self.id_reserva = id_reserva
@@ -25,7 +25,7 @@ class Reserva:
         self.fecha = fecha
         self.duracion = duracion
         self.estado = estado
-
+        self.estado = cantidad
     #Creación de getters y setters usando @property
 
     @property
@@ -176,12 +176,8 @@ class Reserva:
             f"{self.fecha}"
         )
 
-    #Método para mostrar la información de la reserva
-    def mostrar_info(self):
+    def calcular_total(self):
 
-        print("ID Reserva:", self.id_reserva)
-        print("Cliente:", self.cliente.nombre)
-        print("Servicio:", self.servicio.nombre)
-        print("Fecha:", self.fecha)
-        print("Duración:", self.duracion)
-        print("Estado:", self.estado)
+        return self.servicio.calcular_costo(
+            self.duracion
+        )

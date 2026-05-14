@@ -147,9 +147,13 @@ class Servicio:
             )
 
         self._descripcion = valor
-
+   
+    # ---------------- METODO CALCULAR COSTO ----------------
+   
+    def calcular_costo(self, duracion):
+        return self.costo * duracion
 # ---------------- SERVICIO SALA ----------------
-class Sala(Servicio):
+class ServicioSala(Servicio):
     def __init__(self,nombre,costo, disponibilidad,estado,id,tipo, descripcion, capacidad,proyector):
         super().__init__(nombre, costo, disponibilidad,estado,id,tipo, descripcion)
         self.capacidad = capacidad
@@ -198,7 +202,7 @@ class Sala(Servicio):
         self._proyector = valor
 
 # ----------------SERVICIO EQUIPO ----------------
-class Equipo(Servicio):
+class ServicioEquipo(Servicio):
     def __init__(self,nombre,costo, disponibilidad,estado,id, tipo, descripcion, marca, serial, cantidad,):
         super().__init__(nombre, costo, disponibilidad,estado,id, tipo, descripcion)    
         self.marca=marca
@@ -274,8 +278,13 @@ class Equipo(Servicio):
             )
 
         self._cantidad = valor
+
+    def calcular_costo(self, duracion):
+
+        return (self.costo * self.cantidad * duracion)
+    
 # ---------------- SERVICIO ASESORIA ----------------
-class Asesoria(Servicio):
+class ServicioAsesoria(Servicio):
     def __init__(self, nombre,costo, disponibilidad,estado,id, tipo, descripcion, modalidad,duracion,asesor):
         super().__init__(nombre, costo, disponibilidad,estado,id, tipo, descripcion)
         self.modalidad = modalidad
@@ -353,3 +362,4 @@ class Asesoria(Servicio):
             )
 
         self._asesor = valor
+
