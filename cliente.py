@@ -77,9 +77,11 @@ class Cliente:
     def __str__(self):
         return f"{self.nombre} ({self.id}) - {self.email}"
  
-    #Método para mostrar la información del cliente según el ID
+    #Método para mostrar la información del cliente
     def mostrar_info(self):
-        return f"Cliente: {self.nombre}-{self.email}"
+        print("Nombre:", self.nombre)
+        print("Cédula:", self.id)
+        print("Correo:", self.email)
     
             
     

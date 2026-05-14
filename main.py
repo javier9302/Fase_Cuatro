@@ -29,7 +29,16 @@ try:
 except ErrorValidacion as e:
     print("Error:", e)
 
-print(clientes[0])
+try: 
+    clientes.append(Cliente("Reinaldo",10123488,"rey@sucorreo.com"))
+except ErrorValidacion as e:
+    print("Error:", e)
+
+#Loop para mostrar todos los clientes registrados
+for Cliente in clientes:
+    Cliente.mostrar_info()
+    print("--------------")
+#print(*clientes, sep='\n')
 
 #Hasta acá se puede eliminar
 #Termina pruebas de cliente
